@@ -1,0 +1,20 @@
+[project]
+name = "readmegenie"
+version = "0.1.0"
+description = "README.md generator using crewAI"
+authors = [{ name = "Arthur Marcal", email = "arthurmarcal@gmail.com" }]
+requires-python = ">=3.10,<=3.13"
+dependencies = [
+    "crewai[tools]>=0.74.2,<1.0.0"
+]
+
+[project.scripts]
+readmegenie = "readmegenie.main:run"
+run_crew = "readmegenie.main:run"
+train = "readmegenie.main:train"
+replay = "readmegenie.main:replay"
+test = "readmegenie.main:test"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
