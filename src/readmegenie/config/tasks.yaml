@@ -1,11 +1,11 @@
 repository_research_task:
   description: "Fetch the list of files from a GitHub repository."
-  expected_output: "A markdown list of key files, saved to {project_files}."
+  expected_output: "A markdown list of key files, including ALL subdirectories EXACTLY as they are in the root directory, saved to {project_files}."
   agent: github_researcher
   output_file: output/project_files.md
 
 github_code_interpreter_task:
-  description: "Analyze files listed in {project_files}. Retrieve their content from GitHub."
+  description: "Get files names listed in {project_files}. Use files names to retrieve their content from GitHub."
   expected_output: "A detailed overview of each file saved in {project_files_overview}."
   agent: github_code_interpreter
   output_file: output/project_files_overview.md

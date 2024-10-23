@@ -29,7 +29,7 @@ class ReadmegenieCrew:
             tools=[github_file_retriever, file_writer],
             llm=os.getenv('OPENAI_MODEL_NAME', 'gpt-4o-mini'),
             verbose=True,
-            max_iter=10,
+            max_iter=3,
             max_rpm=100,
         )
 
@@ -40,6 +40,7 @@ class ReadmegenieCrew:
             tools=[github_content_retriever, file_writer],
             llm=os.getenv('OPENAI_MODEL_NAME', 'gpt-4o-mini'),
             verbose=True,
+            max_iter=3,
             max_rpm=100,
         )
 
@@ -50,7 +51,7 @@ class ReadmegenieCrew:
             tools=[file_reader],
             llm=os.getenv('OPENAI_MODEL_NAME', 'gpt-4o-mini'),
             verbose=True,
-            max_iter=10,
+            max_iter=3,
             max_rpm=100,
         )
 
@@ -73,6 +74,9 @@ class ReadmegenieCrew:
             agents=self.agents,
             tasks=self.tasks,
             process=Process.sequential,
+            #manager_llm=os.getenv('OPENAI_MODEL_NAME', 'gpt-4o-mini'),
             verbose=True,
-            memory=True, # Memory management is enabled
+            planning=True,
+            planning_llm=os.getenv('OPENAI_MODEL_NAME', 'gpt-4o-mini'),
+            memory=False, # Memory management is disabled
         )

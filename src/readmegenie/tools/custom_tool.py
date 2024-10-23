@@ -50,6 +50,10 @@ class GitHubFileContentRetriever(GitHubBaseTool):
     )
 
     def _run(self, file_name: str) -> str:
+        """
+            Fetch the content of a specific file from the repository.
+            file_name: The name of the file to retrieve.
+        """
         try:
             owner, repo_name = self._parse_repo_env()
             return json.dumps(self._fetch_file_contents(owner, repo_name, file_name))
